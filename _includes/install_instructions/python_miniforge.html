@@ -61,25 +61,48 @@ https://jupyter-notebook.readthedocs.io/en/stable/notebook.html#browser-compatib
           <li>When installation is complete, open the start menu, search and open <em>Miniforge Prompt</em>.</li>
             <ul>
               <li>This is how you will use conda and associated Python tools: always through <em>Miniforge Prompt</em>.</li>
-              <li>You should see <strong>(base)</strong> towards the left end of your <em>Miniforge Prompt</em>. This means conda is installed and your base conda environment is activated.</li>
+              <li>You should now see <strong>(base)</strong> towards the left end of your <em>Miniforge Prompt</em>.
+                This means conda is installed and your base conda environment is activated.</li>
             </ul>
-          <li>To create a new conda environment, copy and paste this command into your <em>Miniforge Prompt</em> and run it by hitting <kbd>Enter</kbd>: <code>conda create --name python_workshop python=3.11</code>.</li>
+          <li>To create a new conda environment, copy and paste the command below into your <em>Miniforge Prompt</em>:
+          <div class="code-block">
+            <pre><code>conda create --name python_workshop python=3.11</code></pre>
+            <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+          </div>
+            Hit <kbd>Enter</kbd> to run. When prompted, type "y" and hit <kbd>Enter</kbd>.</li>
+          <li>Activate the environment with:
+            <div class="code-block">
+              <pre><code>conda activate python_workshop</code></pre>
+              <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+            </div>
+            You should see <strong>(python_workshop)</strong> towards the left end of your <em>Miniforge Prompt</em>,
+            indicating the python_workshop environment is activated.
+          </li>
+          <li>Install some packages with:
+            <div class="code-block">
+              <pre><code>conda install numpy scipy scikit-image pandas matplotlib jupyterlab ipykernel</code></pre>
+              <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+            </div>
+            When prompted, type "y" and hit <kbd>Enter</kbd>.
+          </li>
+          <li>Add this environment to JupyterLab with:
+            <div class="code-block">
+              <pre><code>python -m ipykernel install --user --name=python_workshop</code></pre>
+              <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+            </div>
+          </li>
+          <li>Launch JupyterLab with:
+            <div class="code-block">
+              <pre><code>jupyter-lab</code></pre>
+              <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+            </div>
+          </li>
             <ul>
-              <li>When prompted, type "y" and hit <kbd>Enter</kbd>.</li>
-            </ul>
-          <li>Activate the environment with <code>conda activate python_workshop</code>.</li>
-            <ul>
-              <li>You should see <strong>(python_workshop)</strong> at the left end of your <em>Miniforge Prompt</em>, indicating the python_workshop environment is activated.</li>
-            </ul>
-          <li>Install some packages with <code>conda install numpy scipy scikit-image pandas matplotlib jupyterlab ipykernel</code>.</li>
-            <ul>
-              <li>When prompted, type "y" and hit <kbd>Enter</kbd>.</li>
-            </ul>
-          <li>Add this environment to JupyterLab with <code>python -m ipykernel install --user --name=python_workshop</code>.</li>
-          <li>Launch JupyterLab with <code>jupyter-lab</code>.</li>
-            <ul>
-            <li>This may take a few minutes, but eventually it will launch a browser tab showing JupyterLab. We will learn this in more detail during the workshop</li>
-            <li>Later, if you wish to quit JupyterLab, make sure all your notebooks/scripts have been saved, close the browser tab, and in the terminal from which you launched jupyter-lab, type "<kbd>control</kbd>+<kbd>C</kbd>" twice.</li>
+            <li>This may take a few minutes, but it will eventually launch a browser tab showing JupyterLab.
+              We will learn this in more detail during the workshop</li>
+            <li>Later, if you wish to quit JupyterLab, make sure all your notebooks/scripts have been saved,
+              close the browser tab, and in the terminal from which you launched jupyter-lab,
+              type "<kbd>control</kbd>+<kbd>C</kbd>" twice.</li>
             </ul>
         </ol>
         <!-- <h4>Video Tutorial</h4>
@@ -91,32 +114,70 @@ https://jupyter-notebook.readthedocs.io/en/stable/notebook.html#browser-compatib
       </article>
       <article role="tabpanel" class="tab-pane" id="python-macos">
         <ol>
-            <li>Open a terminal by typing "terminal" in your Spotlight Search (<kbd>command</kbd>+<kbd>space</kbd>). Alternatively, you can navigate to Applications -> Utilities -> Terminal in your Finder, and double click the Terminal icon to open it.</li>
-            <li>To download the installer, copy and paste this command to your terminal and run it by hitting <kbd>return</kbd>: <code>curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"</code>.</li>
-            <li>Run this command to launch the installer: <code>bash Miniforge3-$(uname)-$(uname -m).sh</code>.</li>
+            <li>Open a terminal by typing "terminal" in your Spotlight Search (<kbd>command</kbd>+<kbd>space</kbd>).
+              Alternatively, you can navigate to Applications -> Utilities -> Terminal in your Finder,
+              and double click the Terminal icon to open it.
+            </li>
+            <li>To download the installer, copy and paste this command to your terminal:
+              <div class="code-block">
+                <pre><code>curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"</code></pre>
+                <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+              </div>
+               Hit <kbd>return</kbd> to run.
+            </li>
+            <li>Run this command to launch the installer:
+              <div class="code-block">
+                <pre><code>bash Miniforge3-$(uname)-$(uname -m).sh</code></pre>
+                <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+              </div>
+            </li>
                 <ul>
                     <li>Accept the license terms (this code uses the same BSD-3 license that Janelia encourages developers to use).</li>
                     <li>Accept the default installation location or specify an alternative by typing in a path.</li>
                     <li>When installation is complete, the installer will ask if you want to "initialize conda," type yes and hit <kbd>return</kbd>.</li>
                 </ul>
-            <li>Restart terminal. You should now see <strong>(base)</strong> towards the left end. This means conda is installed and when you started the terminal it activated your base conda environment.</li>
-            <li>Create a new conda environment by running <code>conda create --name python_workshop python=3.11</code>.</li>
+            <li>Restart terminal. You should now see <strong>(base)</strong> towards the left end of the prompt.
+              This means conda is installed and when you started the terminal it activated your base conda environment.
+            </li>
+            <li>To create a new conda environment, run this command in your terminal:
+              <div class="code-block">
+                <pre><code>conda create --name python_workshop python=3.11</code></pre>
+                <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+              </div>
+                When prompted, type "y" and hit <kbd>return</kbd>.</li>
+              <li>Activate the environment with:
+                <div class="code-block">
+                  <pre><code>conda activate python_workshop</code></pre>
+                  <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+                </div>
+                You should see <strong>(python_workshop)</strong> towards the left end of your terminal,
+                indicating the python_workshop environment is activated.
+              </li>
+              <li>Install some packages with:
+                <div class="code-block">
+                  <pre><code>conda install numpy scipy scikit-image pandas matplotlib jupyterlab ipykernel</code></pre>
+                  <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+                </div>
+                When prompted, type "y" and hit <kbd>return</kbd>.
+              </li>
+              <li>Add this environment to JupyterLab with:
+                <div class="code-block">
+                  <pre><code>python -m ipykernel install --user --name=python_workshop</code></pre>
+                  <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+                </div>
+              </li>
+              <li>Launch JupyterLab with:
+                <div class="code-block">
+                  <pre><code>jupyter-lab</code></pre>
+                  <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+                </div>
+              </li>
                 <ul>
-                    <li>When prompted, type "y" and hit <kbd>return</kbd>.</li>
-                </ul>
-            <li>Activate the environment with <code>conda activate python_workshop</code>.</li>
-                <ul>
-                    <li>You should see <strong>(python_workshop)</strong> at the left end of your terminal.</li>
-                </ul>
-            <li>Install some packages with <code>conda install numpy scipy scikit-image pandas matplotlib jupyterlab ipykernel</code>.</li>
-                <ul>
-                    <li>When prompted, type "y" and hit <kbd>return</kbd>.</li>
-                </ul>
-            <li>Add this environment to JupyterLab with <code>python -m ipykernel install --user --name=python_workshop</code>.</li>
-            <li>Launch JupyterLab with <code>jupyter-lab</code>.</li>
-                <ul>
-                <li>This may take a few minutes, but eventually it will launch a browser tab showing JupyterLab. We will learn this in more detail during the workshop</li>
-                <li>Later, if you wish to quit JupyterLab, make sure all your notebooks/scripts have been saved, close the browser tab, and in the terminal from which you launched jupyter-lab, type "<kbd>control</kbd>+<kbd>C</kbd>" twice.</li>
+                <li>This may take a few minutes, but it will eventually launch a browser tab showing JupyterLab.
+                  We will learn this in more detail during the workshop</li>
+                <li>Later, if you wish to quit JupyterLab, make sure all your notebooks/scripts have been saved,
+                  close the browser tab, and in the terminal from which you launched jupyter-lab,
+                  type "<kbd>control</kbd>+<kbd>C</kbd>" twice.</li>
                 </ul>
         </ol>
         <!-- <h4>Video Tutorial</h4>
@@ -129,31 +190,66 @@ https://jupyter-notebook.readthedocs.io/en/stable/notebook.html#browser-compatib
       <article role="tabpanel" class="tab-pane" id="python-linux">
         <ol>
             <li>Open a terminal/shell.</li>
-            <li>To download the installer, copy and paste this command to your terminal and run it by hitting <kbd>Enter</kbd>: <code>curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"</code>.</li>
-            <li>Run this command to launch the installer: <code>bash Miniforge3-$(uname)-$(uname -m).sh</code>.</li>
+            <li>To download the installer, copy and paste this command into your terminal:
+              <div class="code-block">
+                <pre><code>curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"</code></pre>
+                <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+              </div>
+               Hit <kbd>Enter</kbd> to run.
+            </li>
+            <li>Run this command to launch the installer:
+              <div class="code-block">
+                <pre><code>bash Miniforge3-$(uname)-$(uname -m).sh</code></pre>
+                <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+              </div>
+            </li>
                 <ul>
                     <li>Accept the license terms (this code uses the same BSD-3 license that Janelia encourages developers to use).</li>
                     <li>Accept the default installation location or specify an alternative by typing in a path.</li>
                     <li>When installation is complete, the installer will ask if you want to "initialize conda," type yes and hit <kbd>Enter</kbd>.</li>
                 </ul>
-            <li>Restart terminal. You should now see <strong>(base)</strong> towards the left end. This means conda is installed and when you started the terminal it activated your base conda environment.</li>
-            <li>Create a new conda environment by running <code>conda create --name python_workshop python=3.11</code>.</li>
+            <li>Restart terminal. You should now see <strong>(base)</strong> towards the left end of the prompt.
+              This means conda is installed and when you started the terminal it activated your base conda environment.
+            </li>
+            <li>To create a new conda environment, run this command in your terminal:
+              <div class="code-block">
+                <pre><code>conda create --name python_workshop python=3.11</code></pre>
+                <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+              </div>
+                When prompted, type "y" and hit <kbd>Enter</kbd>.</li>
+              <li>Activate the environment with:
+                <div class="code-block">
+                  <pre><code>conda activate python_workshop</code></pre>
+                  <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+                </div>
+                You should see <strong>(python_workshop)</strong> towards the left end of your terminal,
+                indicating the python_workshop environment is activated.
+              </li>
+              <li>Install some packages with:
+                <div class="code-block">
+                  <pre><code>conda install numpy scipy scikit-image pandas matplotlib jupyterlab ipykernel</code></pre>
+                  <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+                </div>
+                When prompted, type "y" and hit <kbd>Enter</kbd>.
+              </li>
+              <li>Add this environment to JupyterLab with:
+                <div class="code-block">
+                  <pre><code>python -m ipykernel install --user --name=python_workshop</code></pre>
+                  <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+                </div>
+              </li>
+              <li>Launch JupyterLab with:
+                <div class="code-block">
+                  <pre><code>jupyter-lab</code></pre>
+                  <button id="copyButton" class="fa-solid fa-copy copy-button" onclick="copyToClipboard(this)"></button>
+                </div>
+              </li>
                 <ul>
-                    <li>When prompted, type "y" and hit <kbd>Enter</kbd>.</li>
-                </ul>
-            <li>Activate the environment with <code>conda activate python_workshop</code>.</li>
-                <ul>
-                    <li>You should see <strong>(python_workshop)</strong> at the left end of your terminal.</li>
-                </ul>
-            <li>Install some packages with <code>conda install numpy scipy scikit-image pandas matplotlib jupyterlab ipykernel</code>.</li>
-                <ul>
-                    <li>When prompted, type "y" and hit <kbd>Enter</kbd>.</li>
-                </ul>
-            <li>Add this environment to JupyterLab with <code>python -m ipykernel install --user --name=python_workshop</code>.</li>
-            <li>Launch JupyterLab with <code>jupyter-lab</code>.</li>
-                <ul>
-                <li>This may take a few minutes, but eventually it will launch a browser tab showing JupyterLab. We will learn this in more detail during the workshop</li>
-                <li>Later, if you wish to quit JupyterLab, make sure all your notebooks/scripts have been saved, close the browser tab, and in the terminal from which you launched jupyter-lab, type "<kbd>control</kbd>+<kbd>C</kbd>" twice.</li>
+                <li>This may take a few minutes, but it will eventually launch a browser tab showing JupyterLab.
+                  We will learn this in more detail during the workshop</li>
+                <li>Later, if you wish to quit JupyterLab, make sure all your notebooks/scripts have been saved,
+                  close the browser tab, and in the terminal from which you launched jupyter-lab,
+                  type "<kbd>control</kbd>+<kbd>C</kbd>" twice.</li>
                 </ul>
         </ol>
       </article>

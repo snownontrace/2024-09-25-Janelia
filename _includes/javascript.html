@@ -99,3 +99,25 @@ https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js
 <script>
     anchors.add();
 </script>
+
+<script>
+  function copyToClipboard(button) {
+      // Find the code block within the same code-block div
+      var codeBlock = button.previousElementSibling.querySelector('code');
+      
+      // Create a temporary textarea element to hold the text
+      var tempTextarea = document.createElement('textarea');
+      tempTextarea.value = codeBlock.innerText;
+      document.body.appendChild(tempTextarea);
+
+      // Select and copy the text
+      tempTextarea.select();
+      document.execCommand('copy');
+
+      // Remove the temporary textarea element
+      document.body.removeChild(tempTextarea);
+
+      // // Alert the copied text (optional)
+      // alert("Copied the text: " + tempTextarea.value);
+  }
+</script>
